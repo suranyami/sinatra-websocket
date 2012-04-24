@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "eventmachine", "~> 1.0.0.beta.4"
   s.add_dependency "thin", "~> 1.3.1"
+  s.add_dependency "em-websocket"
 
   s.add_development_dependency "rake"
   s.add_development_dependency "rdoc"
