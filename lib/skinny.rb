@@ -1,5 +1,6 @@
 require 'eventmachine'
 require 'digest/md5'
+require 'base64'
 require 'thin'
 
 module Skinny
@@ -180,7 +181,7 @@ module Skinny
       elsif hixie_76?
         Digest::MD5.digest(challenge)
       else
-        ActiveSupport::Base64.encode64(Digest::SHA1.digest(challenge)).strip
+        Base64.encode64(Digest::SHA1.digest(challenge)).strip
       end
     end
 
