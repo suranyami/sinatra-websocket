@@ -81,7 +81,7 @@ module Skinny
 
     # Connection is now open
     def post_init
-      EM.next_tick { callback :on_open, self rescue error! "Error in open callback" }
+      EM.next_tick { callback :on_open, self rescue error! "Error in open callback: #{$!}" }
       @state = :open
     rescue
       error! "Error opening connection"
@@ -115,7 +115,7 @@ module Skinny
       @location ||= "ws#{secure? ? 's' : ''}://#{@env['HTTP_HOST']}#{@env['REQUEST_PATH']}"
       @protocol ||= @env['HTTP_SEC_WEBSOCKET_PROTOCOL'] || @env['HTTP_WEBSOCKET_PROTOCOL']
 
-      EM.next_tick { callback :on_start, self rescue error! "Error in start callback" }
+      EM.next_tick { callback :on_start, self rescue error! "Error in start callback: #{$!}" }
 
       # Queue up the actual handshake
       EM.next_tick method :handshake!
@@ -213,9 +213,9 @@ module Skinny
 
       @state = :handshook
 
-      EM.next_tick { callback :on_handshake, self rescue error! "Error in handshake callback" }
+      EM.next_tick { callback :on_handshake, self rescue error! "Error in handshake callback: #{$!}" }
     rescue
-      error! "Error during WebSocket connection handshake"
+      error! "Error during WebSocket connection handshake: #{$!}"
     end
 
     def receive_data data
@@ -331,7 +331,7 @@ module Skinny
     end
 
     def receive_message message
-      EM.next_tick { callback :on_message, self, message rescue error! "Error in message callback" }
+      EM.next_tick { callback :on_message, self, message rescue error! "Error in message callback: #{$!}" }
     end
 
     # This is for post-hixie-76 versions only
@@ -385,7 +385,7 @@ module Skinny
         send_frame OPCODE_CLOSE
       end
 
-      EM.next_tick { callback(:on_finish, self) rescue error! "Error in finish callback" }
+      EM.next_tick { callback(:on_finish, self) rescue error! "Error in finish callback: #{$!}" }
       EM.next_tick { close_connection_after_writing }
 
       @state = :finished
@@ -396,7 +396,7 @@ module Skinny
     # Make sure we call the on_close callbacks when the connection
     # disappears
     def unbind
-      EM.next_tick { callback(:on_close, self) rescue error! "Error in close callback" }
+      EM.next_tick { callback(:on_close, self) rescue error! "Error in close callback: #{$!}" }
       @state = :closed
     rescue
       error! "Error closing WebSocket connection"
@@ -409,7 +409,7 @@ module Skinny
       # Allow error messages to be handled, maybe
       # but only if this error was not caused by the error callback
       if callback
-        EM.next_tick { callback(:on_error, self) rescue error! "Error in error callback", true }
+        EM.next_tick { callback(:on_error, self) rescue error! "Error in error callback: #{$!}", true }
       end
 
       # Try to finish and close nicely.
