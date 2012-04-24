@@ -410,7 +410,7 @@ module Skinny
       # Allow error messages to be handled, maybe
       # but only if this error was not caused by the error callback
       if callback
-        EM.next_tick { callback(:on_error, self) rescue error! "Error in error callback: #{$!}", true }
+        EM.next_tick { callback(:on_error, self, message) rescue error! "Error in error callback: #{$!}", true }
       end
 
       # Try to finish and close nicely.
