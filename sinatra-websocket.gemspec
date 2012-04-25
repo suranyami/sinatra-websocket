@@ -3,8 +3,8 @@ require File.expand_path('../lib/sinatra-websocket/version', __FILE__)
 Gem::Specification.new do |s|
   s.name          = 'sinatra-websocket'
   s.version       = SinatraWebsocket::VERSION
-  s.summary       = "Makes it easy to upgrade any request to a websocket connection"
-  s.description   = "Simple, upgradable WebSockets for Sinatra."
+  s.summary       = "Simple, upgradable WebSockets for Sinatra."
+  s.description   = "Makes it easy to upgrade any request to a websocket connection in Sinatra"
   s.homepage      = 'http://github.com/simulacre/sinatra-websocket'
   s.email         = 'sinatra-websocket@simulacre.org'
   s.authors       = ['Caleb Crane']
