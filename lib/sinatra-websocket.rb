@@ -1,9 +1,9 @@
 require 'thin'
-require "em-websocket"
-require "skinny/ext/thin/connection"
-require "skinny/ext/sinatra/request"
+require 'em-websocket'
+require 'sinatra-websocket/ext/thin/connection'
+require 'sinatra-websocket/ext/sinatra/request'
 
-module Skinny
+module SinatraWebsocket
   class Connection < ::EventMachine::WebSocket::Connection
     class << self
       def from_env(env, options = {})
@@ -112,5 +112,4 @@ module Skinny
       return true
     end
   end
-end # module::Skinny
-
+end # module::SinatraWebSocket

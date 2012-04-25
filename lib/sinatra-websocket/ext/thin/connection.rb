@@ -1,4 +1,4 @@
-module Skinny
+module SinatraWebsocket
   module Ext
     module Thin
       module Connection
@@ -72,5 +72,5 @@ module Skinny
       end # module::Connection
     end # module::Thin
   end # module::Ext
-end # module::Skinny
-defined?(Thin) && Thin::Connection.send(:include, Skinny::Ext::Thin::Connection)
+end # module::SinatraWebsocket
+defined?(Thin) && Thin::Connection.send(:include, SinatraWebsocket::Ext::Thin::Connection)

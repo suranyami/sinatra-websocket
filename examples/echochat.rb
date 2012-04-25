@@ -1,14 +1,7 @@
-# SinatraWebsocket
 
-Makes it easy to upgrade any request to a websocket connection.
+# ruby examples/echochat.rb
 
-SinatraWebsocket is a fork of [Skinny](https://github.com/sj26/skinny) merged with [Rack WebSocket](https://github.com/igrigorik/em-websocket). It provides helpers methods to detect if an request is a WebSocket request and defer to an EM::WebSocket::Connection.
-
-
-## Put this in your pipe ...
-
-```ruby
-
+$: << File.expand_path('../../lib/', __FILE__)
 require 'sinatra'
 require 'sinatra-websocket'
 
@@ -71,20 +64,3 @@ __END__
     }
   </script>
 </html>
-
-```
-
-## And Smoke It
-
-```
-ruby echo.rb
-```
-
-
-## Copyright
-
-Copyright (c) 2012 Caleb Crane.
-
-Portions of this software are Copyright (c) Bernard Potocki <bernard.potocki@imanel.org> and Samuel Cochran.
-
-See License.txt for more details.
