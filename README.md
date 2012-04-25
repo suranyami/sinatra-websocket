@@ -2,7 +2,7 @@
 
 Makes it easy to upgrade any request to a websocket connection.
 
-SinatraWebsocket is a fork of [Skinny](https://github.com/sj26/skinny) merged with [Rack WebSocket](https://github.com/igrigorik/em-websocket). It provides helpers methods to detect if an request is a WebSocket request and defer to an EM::WebSocket::Connection.
+SinatraWebsocket is a fork of [Skinny](https://github.com/sj26/skinny) merged with [Rack WebSocket](https://github.com/igrigorik/em-websocket). It provides helpers methods to detect if a request is a WebSocket request and defer to an EM::WebSocket::Connection.
 
 
 ## Put this in your pipe ...
