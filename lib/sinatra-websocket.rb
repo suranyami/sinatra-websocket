@@ -97,6 +97,10 @@ module SinatraWebsocket
       debug [:initialize]
     end
 
+    def get_peername
+      @socket.get_peername
+    end
+
     # Overwrite dispath from em-websocket
     # we already have request headers parsed so
     # we can skip it and call build_with_request
