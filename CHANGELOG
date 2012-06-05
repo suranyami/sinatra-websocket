@@ -1,0 +1,2 @@
+ 0.1.2
+ - Sinatra::Request#websocket? will check if HTTP_CONNECTION and HTTP_UPGRADE headers exist before examining them
