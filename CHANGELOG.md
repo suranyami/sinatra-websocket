@@ -1,3 +1,6 @@
+## 0.2.1
+ - [#3](https://github.com/simulacre/sinatra-websocket/pull/3): Lock em-websocket dependency due to latest API changes. - [@pedrocarrico](https://github.com/pedrocarrico)
+
 ## 0.2.0
  - [#2](https://github.com/simulacre/sinatra-websocket/pull/2): Update gem spec to work with latest thin (1.5.0) - [@pedrocarrico](https://github.com/pedrocarrico)
 
