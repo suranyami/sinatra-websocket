@@ -1,3 +1,6 @@
+## 0.3.0
+ - [#6](https://github.com/simulacre/sinatra-websocket/pull/6): check for the existence of async.orig_callback - [@crazed](https://github.com/crazed)
+
 ## 0.2.1
  - [#3](https://github.com/simulacre/sinatra-websocket/pull/3): Lock em-websocket dependency due to latest API changes. - [@pedrocarrico](https://github.com/pedrocarrico)
 
