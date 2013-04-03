@@ -1,4 +1,4 @@
-
+#!/usr/bin/env ruby
 # ruby examples/echochat.rb
 
 $: << File.expand_path('../../lib/', __FILE__)
