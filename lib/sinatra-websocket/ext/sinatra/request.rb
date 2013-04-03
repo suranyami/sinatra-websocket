@@ -13,7 +13,7 @@ module SinatraWebsocket
         # Taken from skinny https://github.com/sj26/skinny
         def websocket(options={}, &blk)
           env['skinny.websocket'] ||= begin
-            raise RuntimeError, "Not a WebSocket request" unless websocket?
+            raise Error::ConnectionError.new("Not a WebSocket request") unless websocket?
             SinatraWebsocket::Connection.from_env(env, options, &blk)
           end
         end

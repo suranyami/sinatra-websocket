@@ -1,5 +1,6 @@
 require 'thin'
 require 'em-websocket'
+require 'sinatra-websocket/error'
 require 'sinatra-websocket/ext/thin/connection'
 require 'sinatra-websocket/ext/sinatra/request'
 
@@ -12,7 +13,7 @@ module SinatraWebsocket
         elsif env.include?(Thin::Request::ASYNC_CALLBACK)
           callback_key = Thin::Request::ASYNC_CALLBACK
         else
-          raise 'Could not find an async callback in our environment!'
+          raise Error::ConfigurationError.new('Could not find an async callback in our environment!')
         end
         socket     = env[callback_key].receiver
         request    = request_from_env(env)
